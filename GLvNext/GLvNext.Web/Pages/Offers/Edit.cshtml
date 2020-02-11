@@ -1,0 +1,26 @@
+﻿@page "{offerId?}"
+@model GLvNext.Web.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit @Model.Offer.Title</h2>
+<form method="post">
+
+    <input type="hidden" asp-for="Offer.Id" />
+    <input type="hidden" asp-for="Offer.Source" />
+    <div class="form-group">
+        <label asp-for="Offer.Title"></label>
+        <input type="text" asp-for="Offer.Title" size="60" />
+        <span class="text-danger" asp-validation-for="Offer.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Offer.Description"></label>
+        <textarea asp-for="Offer.Description" rows="10" cols="70"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./List" class="btn btn-default">See all Offers</a>
+</form>
+

@@ -1,0 +1,39 @@
+﻿@page
+@model GLvNext.Web.ListModel
+@{
+    ViewData["Title"] = "List Offers";
+}
+
+<h2>Offers</h2>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTitle" />
+            <button class="btn btn-default">Search</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    @foreach (var ofr in Model.Offers)
+    {
+        <tr>
+            <td>@ofr.Title</td>
+            <td>@ofr.Description</td>
+            <td>@ofr.Source</td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Detail" asp-route-offerId="@ofr.Id">
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Edit" asp-route-offerId="@ofr.Id">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-page="./Edit" class="btn btn-default">Add</a>

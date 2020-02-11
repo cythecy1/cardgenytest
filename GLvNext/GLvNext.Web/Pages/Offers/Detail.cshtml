@@ -1,0 +1,24 @@
+﻿@page "{offerId:Guid}"
+
+@model GLvNext.Web.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+<h2>@Model.Offer.Title</h2>
+<div>
+    Id : @Model.Offer.Id
+</div>
+<div>
+    Description : @Model.Offer.Description
+</div>
+<div>
+    Source : @Model.Offer.Source
+</div>
+
+<a asp-page="./List" class="btn btn-default">All Offers</a>
